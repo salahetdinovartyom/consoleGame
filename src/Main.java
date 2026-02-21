@@ -60,6 +60,7 @@ public class Main {
                 }
                 else {
                     System.out.println("Координаты не изменены");
+//                    эта строка чтобы просто ещё раз закоммитить
                 }
                 break;
             case "НЕТ":
