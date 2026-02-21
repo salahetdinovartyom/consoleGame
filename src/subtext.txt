@@ -1,0 +1,22 @@
+       /*personX=1+sizeBoard/2;
+       personY=1+sizeBoard/2;
+       step+=1; */
+       //        String gamingField= "+ —— + —— + —— +\n"
+       //                + "|    |    |    |\n"
+       //                + "+ —— + —— + —— +\n"
+       //                + "|    | " + monster + " |    |\n"
+       //                + "+ —— + —— + —— +\n"
+       //                + "| " + person + " |    |    |\n"
+       //                + "+ —— + —— + —— +";
+       //        Scanner in = new Scanner(System.in);
+       //        double d=in.nextDouble();
+       //        System.out.println(d);
+       //        ВСТРЕЧА 3
+       //        int personX = 1;
+       //        int personY = 3;
+       //        System.out.println(personX > 10); //выведет false
+       //        System.out.println(personY == 3); //выведет true
+       //                while ((personLive > 0)&& !(castleX == personX && castleY ==personY)) {
+       //
+       //                }
+       //                    System.out.println(gamingField);
