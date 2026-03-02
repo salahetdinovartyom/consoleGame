@@ -12,10 +12,10 @@ public class Main {
         String castle = "🏰";
         byte castleY = 1;
         int castleX = 1 + random.nextInt(sizeBoard);
-
-        String person = "🦸🏻";
-        int personX = 1 + random.nextInt(sizeBoard);
-        short personY = 5;
+        Person person = new Person(sizeBoard);
+        String pperson = "🦸🏻";
+        int person.x = 1 + random.nextInt(sizeBoard);
+        short person.y = 5;
         byte personLive = 3;
 
         String monster = "👹";
@@ -42,7 +42,7 @@ public class Main {
                     board[random.nextInt(sizeBoard - 1)][random.nextInt(sizeBoard)] = monster;
                 }
                 board[castleY - 1][castleX - 1] = castle;
-                board[personY - 1][personX - 1] = person;
+                board[personY - 1][personX - 1] = pperson;
 
                 while (true) {
 
@@ -91,7 +91,7 @@ public class Main {
                             personX = x;
                             personY = y;
                             step += 1;
-                            board[personY - 1][personX - 1] = person;
+                            board[personY - 1][personX - 1] = pperson;
                             System.out.println("Ход корректный. Новые координаты: " + personX + ", " + personY + "\n\nХод номер: " + step+1);
                         } else if (board[y - 1][x - 1].equals(castle)) {
                             System.out.println("Вы прошли игру");
@@ -100,14 +100,13 @@ public class Main {
 
                             System.out.print("Решите задачу: ");
                             if (taskMonster(difficultGame)) {
-                                board[personY - 1][personX - 1] = "  ";
                                 personX = x;
                                 personY = y;
                                 step++;
-                                board[personY-1][personX-1] = person;
+                                board[personY-1][personX-1] = pperson;
                             } else {
                                 personLive--;
-                                board[personY-1][personX-1] = person;
+                                board[personY-1][personX-1] = pperson;
                             }
                         }
 
