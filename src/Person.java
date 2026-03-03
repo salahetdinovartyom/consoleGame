@@ -19,4 +19,8 @@ public class Person {
         y=sizeBoard;
         x=1 + random.nextInt(sizeBoard);
     }
+    Person() {
+        this(1, 1);
+    }
+
 }

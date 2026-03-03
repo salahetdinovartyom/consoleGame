@@ -14,8 +14,8 @@ public class Main {
         int castleX = 1 + random.nextInt(sizeBoard);
         Person person = new Person(sizeBoard);
         String pperson = "🦸🏻";
-        int person.x = 1 + random.nextInt(sizeBoard);
-        short person.y = 5;
+        int personX = 1 + random.nextInt(sizeBoard);
+        int personY = 5;
         byte personLive = 3;
 
         String monster = "👹";
@@ -82,37 +82,53 @@ public class Main {
                     System.out.printf("Координаты персонажа - x: " + personX + ", y:" + personY + " ");
                     byte x = scanner.nextByte();
                     byte y = scanner.nextByte();
-
-                    if (x != personX && y != personY) {
-                        System.out.println("Некорректный ход");
-                    } else if (Math.abs(x - personX) == 1 || Math.abs(y - personY) == 1) {
-                        board[personY - 1][personX - 1] = "  ";
-                        if (board[y - 1][x - 1].equals("  ")) {
-                            personX = x;
-                            personY = y;
-                            step += 1;
-                            board[personY - 1][personX - 1] = pperson;
-                            System.out.println("Ход корректный. Новые координаты: " + personX + ", " + personY + "\n\nХод номер: " + step+1);
-                        } else if (board[y - 1][x - 1].equals(castle)) {
-                            System.out.println("Вы прошли игру");
+                    if (person.isMoveCorrect(x, y)) {
+                        String next = board[y - 1][x - 1];
+                        if (next.equals("  ")) {
+                            board[person.y - 1][person.x - 1] = "  ";
+                            person.move(x, y);
+                            step++;
+                            System.out.println("Ход корректный; Новые координаты: " + person.x + ", " + person.y +
+                                    "\\nХод номер: " + step);
+                        } else if (next.equals(castle)) {
+                            System.out.println("Вы прошли игру!");
                             break;
                         } else {
-
-                            System.out.print("Решите задачу: ");
-                            if (taskMonster(difficultGame)) {
-                                personX = x;
-                                personY = y;
-                                step++;
-                                board[personY-1][personX-1] = pperson;
-                            } else {
-                                personLive--;
-                                board[personY-1][personX-1] = pperson;
-                            }
+                            // задача и взаимодействие с монстрами
                         }
-
                     } else {
-                        System.out.println("Координаты не изменены");
+                        System.out.println("Некорректный ход");
                     }
+//                    if (x != personX && y != personY) {
+//                        System.out.println("Некорректный ход");
+//                    } else if (Math.abs(x - personX) == 1 || Math.abs(y - personY) == 1) {
+//                        board[personY - 1][personX - 1] = "  ";
+//                        if (board[y - 1][x - 1].equals("  ")) {
+//                            personX = x;
+//                            personY = y;
+//                            step += 1;
+//                            board[personY - 1][personX - 1] = pperson;
+//                            System.out.println("Ход корректный. Новые координаты: " + personX + ", " + personY + "\n\nХод номер: " + step+1);
+//                        } else if (board[y - 1][x - 1].equals(castle)) {
+//                            System.out.println("Вы прошли игру");
+//                            break;
+//                        } else {
+//
+//                            System.out.print("Решите задачу: ");
+//                            if (taskMonster(difficultGame)) {
+//                                personX = x;
+//                                personY = y;
+//                                step++;
+//                                board[personY-1][personX-1] = pperson;
+//                            } else {
+//                                personLive--;
+//                                board[personY-1][personX-1] = pperson;
+//                            }
+//                        }
+//
+//                    } else {
+//                        System.out.println("Координаты не изменены");
+//                    }
                 }
                 break;
             case "НЕТ":
