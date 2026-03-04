@@ -3,16 +3,13 @@ import java.util.Scanner;
 
 public class Monster {
     private String monster = "👹";
-    public int countMonster (int sizeBoard) {
-        return sizeBoard * sizeBoard - sizeBoard - 1;
-    }
-    public String getMonster() {
-        return monster;
-    }
 
-    public void setMonster(String monster) {
-        this.monster = monster;
-    }
+    public int countMonster (int sizeBoard) {return sizeBoard * sizeBoard - sizeBoard - 1;}
+
+    public String getMonster() {return monster;}
+
+    public void setMonster(String monster) {this.monster = monster;}
+
     public static boolean taskMonster(byte key) {
         if (key == 1) {
             Random r = new Random();
@@ -33,9 +30,8 @@ public class Monster {
         } else {
             return false;
         }
-
-
     }
+
     public static boolean lastChance(byte step) {
         Random random=new Random();
         Scanner scanner = new Scanner(System.in);

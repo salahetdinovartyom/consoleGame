@@ -12,6 +12,7 @@ public class Main {
         String castle = "🏰";
         byte castleY = 1;
         int castleX = 1 + random.nextInt(sizeBoard);
+
         Person person = new Person(sizeBoard);
 
         Monster monster = new Monster();
@@ -27,7 +28,6 @@ public class Main {
                 byte difficultGame = scanner.nextByte();
                 System.out.println("Выбранная сложность:\t" + difficultGame);
 
-
                 String[][] board = new String[sizeBoard][sizeBoard];
                 for (int y = 1; y <= sizeBoard; y++) {
                     for (int x = 1; x <= sizeBoard; x++) {
@@ -41,6 +41,7 @@ public class Main {
                 board[person.getY() - 1][person.getX() - 1] = person.getPerson();
 
                 while (true) {
+
                     if (person.getLive() == 0) {
                         if (Monster.lastChance(step)) {
                             person.plusLive();
@@ -48,6 +49,7 @@ public class Main {
                             break;
                         }
                     }
+
                     outputBoard(board,person.getLive());
                     System.out.println("Введите куда пойдёт персонаж (ход возможен только по вертикали или горизонтали)");
                     System.out.printf("Координаты персонажа - x: " + person.getX() + ", y:" + person.getY() + " ");
@@ -62,9 +64,11 @@ public class Main {
                             step++;
                             System.out.println("Ход корректный; Новые координаты: " + person.getX() + ", " + person.getY() +
                                     "\\nХод номер: " + step);
+
                         } else if (next.equals(castle)) {
                             System.out.println("Вы прошли игру!");
                             break;
+
                         } else {
                             System.out.print("Решите задачу: ");
                             if (Monster.taskMonster(difficultGame)) {
@@ -82,10 +86,12 @@ public class Main {
                     }
                 }
                 break;
+
             case "НЕТ":
                 System.out.println("У меня вообще-то супер пупер мега игра где можно выиграть миллион(((");
                 System.out.println("Ну ладно если захочешь потом приходи!");
                 break;
+
             default:
                 System.out.println("ДА иль НЕТ дай мне ответ!");
                 person.setPerson("😺");
