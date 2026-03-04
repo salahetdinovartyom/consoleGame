@@ -1,9 +1,10 @@
 import java.util.Random;
 
 public class Person {
-    String person = "🦸🏻";
-    int x, y;
-    byte personLive = 3;
+    private String person="\uD83E\uDDB8";
+    private int x, y;
+    private byte personLive = 3;
+    Random random=new Random();
     void move(byte x,byte y) {
         this.x = x;
         this.y = y;
@@ -12,15 +13,32 @@ public class Person {
         return this.x == x && Math.abs(this.y - y) == 1 || this.y == y && Math.abs(this.x - x) == 1;
     }
     public void minusLive () {
-        this.personLive--;
+        if (personLive<0) personLive=0;
+        else personLive--;
+    }
+    public void plusLive() {
+        personLive++;
     }
     Person(byte sizeBoard) {
-        Random random=new Random();
         y=sizeBoard;
         x=1 + random.nextInt(sizeBoard);
     }
-    Person() {
-        this(1, 1);
+//    Person() {this(1, 1);}
+    public int getX(){
+    return x;
+}
+    public int getY() {
+        return y;
     }
+    public int getLive() {
+        return personLive;
+    }
+    public String getPerson(){
+        return person;
+    }
+    public void setPerson(String person) {
+        this.person=person;
+    }
+
 
 }

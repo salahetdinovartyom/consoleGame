@@ -21,3 +21,40 @@
        //                }
        //                    System.out.println(gamingField);
 массив[]=адрес первого элемента + размер типа данных * индекс
+
+
+if (x != personX && y != personY) {
+//                        System.out.println("Некорректный ход");
+//                    } else if (Math.abs(x - personX) == 1 || Math.abs(y - personY) == 1) {
+//                        board[personY - 1][personX - 1] = "  ";
+//                        if (board[y - 1][x - 1].equals("  ")) {
+//                            personX = x;
+//                            personY = y;
+//                            step += 1;
+//                            board[personY - 1][personX - 1] = pperson;
+//                            System.out.println("Ход корректный. Новые координаты: " + personX + ", " + personY + "\n\nХод номер: " + step+1);
+//                        } else if (board[y - 1][x - 1].equals(castle)) {
+//                            System.out.println("Вы прошли игру");
+//                            break;
+//                        } else {
+//
+//                            System.out.print("Решите задачу: ");
+//                            if (taskMonster(difficultGame)) {
+//                                personX = x;
+//                                personY = y;
+//                                step++;
+//                                board[personY-1][personX-1] = pperson;
+//                            } else {
+//                                personLive--;
+//                                board[personY-1][personX-1] = pperson;
+//                            }
+//                        }
+//
+//                    } else {
+//                        System.out.println("Координаты не изменены");
+//                    }
+На всякий сохраню, вдруг появится джава без классов и придётся всё на месте делать)))
+
+//        String pperson = "🦸🏻";
+//        int personX = 1 + random.nextInt(sizeBoard);
+//        int personY = 5;
