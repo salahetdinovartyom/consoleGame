@@ -18,7 +18,7 @@ public class Main {
         Monster monster = new Monster();
 
         System.out.println("Привет! Ты готов начать играть в игру? (Напиши: ДА или НЕТ)");
-        String answer = scanner.nextLine();
+        String answer = scanner.nextLine().toUpperCase();
 //        System.out.println("Ваш ответ:\t" + answer );
 
         switch (answer) {
@@ -26,7 +26,7 @@ public class Main {
                 System.out.println("Начинаем играть!"); /*Октонавты*/
                 System.out.println("Выбери сложность игры (от 1 до 5): ");
                 byte difficultGame = scanner.nextByte();
-                System.out.println("Выбранная сложность:\t" + difficultGame);
+//                System.out.println("Выбранная сложность:\t" + difficultGame);
 
                 String[][] board = new String[sizeBoard][sizeBoard];
                 for (int y = 1; y <= sizeBoard; y++) {
@@ -52,6 +52,10 @@ public class Main {
 
                     outputBoard(board,person.getLive());
                     System.out.println("Введите куда пойдёт персонаж (ход возможен только по вертикали или горизонтали)");
+
+//                    if (0<KeyManager.move(person.getX(),person.getY()) && KeyManager.move(person.getX(),person.getY()) <= sizeBoard) {
+//                        System.out.println("Неуспел доделать");
+//                    }
                     System.out.printf("Координаты персонажа - x: " + person.getX() + ", y:" + person.getY() + " ");
                     byte x = scanner.nextByte();
                     byte y = scanner.nextByte();
@@ -63,7 +67,7 @@ public class Main {
                             board[person.getY()-1][person.getX()-1]= person.getPerson();
                             step++;
                             System.out.println("Ход корректный; Новые координаты: " + person.getX() + ", " + person.getY() +
-                                    "\\nХод номер: " + step);
+                                    "\nХод номер: " + step);
 
                         } else if (next.equals(castle)) {
                             System.out.println("Вы прошли игру!");
@@ -114,4 +118,5 @@ public class Main {
         System.out.println(wall);
         System.out.println("Кол-во жизней:" + live + "\n");
     }
+
 }
