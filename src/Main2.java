@@ -54,7 +54,7 @@ public class Main2 {
                     System.out.println("Введите куда пойдёт персонаж (ход возможен только по вертикали или горизонтали)");
                     int x=person.getX();
                     int y=person.getY();
-                    switch (KeyManager.move(person.getX(),person.getY())) {
+                    switch (KeyManager.move()) {
                         case 1: y++; break;
                         case 2: y--; break;
                         case 3: x++; break;

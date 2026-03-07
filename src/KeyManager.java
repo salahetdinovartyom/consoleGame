@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class KeyManager {
-    public static int move(int x, int y) {
+    public static int move() {
         System.out.println("Напиши одну из букв: \nW-вперёд;\nS-назад;\nA-влево;\nD-вправо;");
         Scanner s = new Scanner(System.in);
         String c=s.nextLine().toUpperCase();
