@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class Main2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -52,9 +52,16 @@ public class Main {
 
                     outputBoard(board,person.getLive());
                     System.out.println("Введите куда пойдёт персонаж (ход возможен только по вертикали или горизонтали)");
-                    System.out.printf("Координаты персонажа - x: " + person.getX() + ", y:" + person.getY() + " ");
-                    byte x = scanner.nextByte();
-                    byte y = scanner.nextByte();
+                    int x=person.getX();
+                    int y=person.getY();
+                    switch (KeyManager.move(person.getX(),person.getY())) {
+                        case 1: y++; break;
+                        case 2: y--; break;
+                        case 3: x++; break;
+                        case 4: x--; break;
+                        case 52: System.out.println("Неверный ход, попробуйте снова"); break;
+                    }
+//                    System.out.printf("Координаты персонажа - x: " + person.getX() + ", y:" + person.getY() + " ");
                     if (person.isMoveCorrect(x, y)) {
                         String next = board[y - 1][x - 1];
                         if (next.equals("  ")) {

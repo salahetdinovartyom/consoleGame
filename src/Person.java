@@ -18,7 +18,7 @@ public class Person {
 
     public void setPerson(String person) {this.person=person;}
 
-    void move(byte x,byte y) {
+    void move(int x,int y) {
         this.x = x;
         this.y = y;
     }

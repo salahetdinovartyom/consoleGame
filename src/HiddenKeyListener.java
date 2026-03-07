@@ -1,7 +1,7 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
-
+// Этот код сделала Алиса, я просто проверял как работает. Если хотите можете протестировать (если увидите что открылось новое окно, это не вирус))) )
 public class HiddenKeyListener {
     public static class HiddenFrame extends JFrame {
         public HiddenFrame() {

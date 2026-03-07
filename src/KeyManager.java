@@ -2,19 +2,16 @@ import java.util.Scanner;
 
 public class KeyManager {
     public static int move(int x, int y) {
-        System.out.println("Напиши одну из букв: \nW-вперёд;\nS-назад;\nA-влево;\nD-вправо;\n");
+        System.out.println("Напиши одну из букв: \nW-вперёд;\nS-назад;\nA-влево;\nD-вправо;");
         Scanner s = new Scanner(System.in);
         String c=s.nextLine().toUpperCase();
-        int newX = 0,newY=0;
+        System.out.println(c);
         switch (c) {
-            case "W", "Ц" -> newX=x+1;
-            case "S", "Ы" -> newX=x-1;
-            case "A", "Ф" -> newY=y-1;
-            case "D", "В" -> newY=y+1;
+            case "W", "Ц" -> {return 1;}
+            case "S", "Ы" -> {return 2;}
+            case "A", "Ф" -> {return 3;}
+            case "D", "В" -> {return 4;}
+            default -> {return 52;}
         }
-        if (newX != x) return newX;
-        else if (newY!=y) return newY;
-        else return -7;
     }
-
 }
