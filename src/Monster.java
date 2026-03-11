@@ -10,8 +10,8 @@ public class Monster {
 
     public void setMonster(String monster) {this.monster = monster;}
 
-    public static boolean taskMonster(byte key) {
-        if (key == 1) {
+    public static boolean taskMonster() {
+//        if (key == 1) {
             Random r = new Random();
             Scanner sc = new Scanner(System.in);
             int monster1 = r.nextInt(300);
@@ -27,9 +27,9 @@ public class Monster {
                 return false;
             }
 
-        } else {
-            return false;
-        }
+//        } else {
+//            return false;
+//        }
     }
 
     public static boolean lastChance(byte step) {

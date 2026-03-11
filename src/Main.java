@@ -16,7 +16,7 @@ public class Main {
         Person person = new Person(sizeBoard);
 
         Monster monster = new Monster();
-
+        BigMonster bigMonster= new BigMonster();
         System.out.println("Привет! Ты готов начать играть в игру? (Напиши: ДА или НЕТ)");
         String answer = scanner.nextLine().toUpperCase();
 //        System.out.println("Ваш ответ:\t" + answer );
@@ -36,6 +36,9 @@ public class Main {
                 }
                 for (int i = 0; i <= monster.countMonster(sizeBoard); i++) {
                     board[random.nextInt(sizeBoard - 1)][random.nextInt(sizeBoard)] = monster.getMonster();
+                }
+                for (int i=0;i<=bigMonster.countMonster(sizeBoard); i++) {
+                    board[random.nextInt(sizeBoard-1)][random.nextInt(sizeBoard-1)] = bigMonster.getMonster();
                 }
                 board[castleY - 1][castleX - 1] = castle;
                 board[person.getY() - 1][person.getX() - 1] = person.getPerson();
@@ -71,14 +74,26 @@ public class Main {
 
                         } else {
                             System.out.print("Решите задачу: ");
-                            if (Monster.taskMonster(difficultGame)) {
-                                board[person.getY()-1][person.getX()-1] = "  ";
-                                person.move(x,y);
+                            if (board[y-1][x-1].equals(bigMonster.getMonster())) {
+                                if (BigMonster.taskMonster(difficultGame)) {
+                                    board[person.getY()-1][person.getX()-1] = "  ";
+                                    person.move(x,y);
 
-                            } else {
-                                person.minusLive();
+                                } else {
+                                    person.minusLive();
+                                }
+                                step++;
+                            } else if (board[y-1][x-1].equals(monster.getMonster())) {
+                                if (Monster.taskMonster()) {
+                                    board[person.getY()-1][person.getX()-1] = "  ";
+                                    person.move(x,y);
+
+                                } else {
+                                    person.minusLive();
+                                }
+                                step++;
                             }
-                            step++;
+
                             board[person.getY()-1][person.getX()-1] = person.getPerson();
                         }
                     } else {

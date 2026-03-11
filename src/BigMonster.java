@@ -2,17 +2,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class BigMonster extends Monster{
-    private String bigMonster="🧌";
+    private String monster="🧌";
 //    BigMonster(int sizeBoard) {
 //        super(sizeBoard);
 //    } я посчитал его ненужным)))
-    public String getImage() {
-        return bigMonster;
-    }
+    public String getMonster() {return monster;}
 
-    @Override
-    public boolean taskMonster(/*int difficultGame*/){
-        System.out.println("Решите задачу:");
+    public int countMonster(int sizeBoard) {return sizeBoard-1;}
+
+//    @Override
+    public static boolean taskMonster(int difficultGame){
+        if (difficultGame==1) {return taskMonster();}
+        else {
         Random r=new Random();
         int x = r.nextInt(15);
         int y = r.nextInt(10);
@@ -27,5 +28,9 @@ public class BigMonster extends Monster{
         }
         System.out.println("Ты проиграл эту битву!");
         return false;
+        }
     }
+//    public boolean taskMonster() {
+//        return super.taskMonster();
+//    }
 }

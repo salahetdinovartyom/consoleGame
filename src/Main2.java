@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-
+// У меня не получилось
 public class Main2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -78,7 +78,7 @@ public class Main2 {
 
                         } else {
                             System.out.print("Решите задачу: ");
-                            if (Monster.taskMonster(difficultGame)) {
+                            if (Monster.taskMonster()) {
                                 board[person.getY()-1][person.getX()-1] = "  ";
                                 person.move(x,y);
 
