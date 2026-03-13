@@ -1,0 +1,4 @@
+Main.java - это по координатам перемещение
+Main2 - по WASD
+HiddenKeyListener - там написано, что это такое
+Vstrecha и Cat - что мы на уроках писали

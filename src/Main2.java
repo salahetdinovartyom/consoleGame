@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-// У меня не получилось, можете не обращать внимания, это код чтобы было управление WASD
+
 public class Main2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -16,17 +16,16 @@ public class Main2 {
         Person person = new Person(sizeBoard);
 
         Monster monster = new Monster();
+        BigMonster bigMonster= new BigMonster();
 
         System.out.println("Привет! Ты готов начать играть в игру? (Напиши: ДА или НЕТ)");
         String answer = scanner.nextLine().toUpperCase();
-//        System.out.println("Ваш ответ:\t" + answer );
 
         switch (answer) {
             case "ДА":
-                System.out.println("Начинаем играть!"); /*Октонавты*/
+                System.out.println("Начинаем играть!");
                 System.out.println("Выбери сложность игры (от 1 до 5): ");
                 byte difficultGame = scanner.nextByte();
-//                System.out.println("Выбранная сложность:\t" + difficultGame);
 
                 String[][] board = new String[sizeBoard][sizeBoard];
                 for (int y = 1; y <= sizeBoard; y++) {
@@ -37,11 +36,13 @@ public class Main2 {
                 for (int i = 0; i <= monster.countMonster(sizeBoard); i++) {
                     board[random.nextInt(sizeBoard - 1)][random.nextInt(sizeBoard)] = monster.getMonster();
                 }
+                for (int i=0;i<=bigMonster.countMonster(sizeBoard); i++) {
+                    board[random.nextInt(sizeBoard-1)][random.nextInt(sizeBoard-1)] = bigMonster.getMonster();
+                }
                 board[castleY - 1][castleX - 1] = castle;
                 board[person.getY() - 1][person.getX() - 1] = person.getPerson();
 
                 while (true) {
-
                     if (person.getLive() == 0) {
                         if (Monster.lastChance(step)) {
                             person.plusLive();
@@ -55,13 +56,12 @@ public class Main2 {
                     int x=person.getX();
                     int y=person.getY();
                     switch (KeyManager.move()) {
-                        case 1: y++; break;
-                        case 2: y--; break;
-                        case 3: x++; break;
-                        case 4: x--; break;
-                        case 52: System.out.println("Неверный ход, попробуйте снова"); break;
+                        case 1: y--; break;
+                        case 2: y++; break;
+                        case 3: x--; break;
+                        case 4: x++; break;
+                        case 0: System.out.println("Неверный ход, попробуйте снова"); break;
                     }
-//                    System.out.printf("Координаты персонажа - x: " + person.getX() + ", y:" + person.getY() + " ");
                     if (person.isMoveCorrect(x, y)) {
                         String next = board[y - 1][x - 1];
                         if (next.equals("  ")) {
@@ -71,21 +71,29 @@ public class Main2 {
                             step++;
                             System.out.println("Ход корректный; Новые координаты: " + person.getX() + ", " + person.getY() +
                                     "\nХод номер: " + step);
-
                         } else if (next.equals(castle)) {
                             System.out.println("Вы прошли игру!");
                             break;
-
                         } else {
                             System.out.print("Решите задачу: ");
-                            if (Monster.taskMonster()) {
-                                board[person.getY()-1][person.getX()-1] = "  ";
-                                person.move(x,y);
+                            if (board[y-1][x-1].equals(bigMonster.getMonster())) {
+                                if (BigMonster.taskMonster(difficultGame)) {
+                                    board[person.getY()-1][person.getX()-1] = "  ";
+                                    person.move(x,y);
 
-                            } else {
-                                person.minusLive();
+                                } else {
+                                    person.minusLive();
+                                }
+                                step++;
+                            } else if (board[y-1][x-1].equals(monster.getMonster())) {
+                                if (Monster.taskMonster()) {
+                                    board[person.getY()-1][person.getX()-1] = "  ";
+                                    person.move(x,y);
+                                } else {
+                                    person.minusLive();
+                                }
+                                step++;
                             }
-                            step++;
                             board[person.getY()-1][person.getX()-1] = person.getPerson();
                         }
                     } else {
@@ -98,7 +106,6 @@ public class Main2 {
                 System.out.println("У меня вообще-то супер пупер мега игра где можно выиграть миллион(((");
                 System.out.println("Ну ладно если захочешь потом приходи!");
                 break;
-
 
             default:
                 System.out.println("ДА иль НЕТ дай мне ответ!");

@@ -22,7 +22,7 @@ public class Person {
         this.x = x;
         this.y = y;
     }
-    public boolean isMoveCorrect(int x, int y) {return this.x == x && Math.abs(this.y - y) == 1 || this.y == y && Math.abs(this.x - x) == 1;}
+    public boolean isMoveCorrect(int x, int y) {return (this.x == x && Math.abs(this.y - y) == 1 || this.y == y && Math.abs(this.x - x) == 1) && (x<=5 && y<=5);}
 
     public void minusLive () {
         if (personLive<0) personLive=0;
