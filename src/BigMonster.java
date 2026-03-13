@@ -8,7 +8,7 @@ public class BigMonster extends Monster{
 
     public String getMonster() {return "🧌";}
 
-    private static boolean isAsk;
+    private static boolean isAsk=false;
 
     public int countMonster(int sizeBoard) {return sizeBoard-1;}
 
@@ -34,15 +34,16 @@ public class BigMonster extends Monster{
         }
         else {
             if (!isAsk) {
-                System.out.println("У морской кошачьей выдры есть толстый слой меха, который помогает ей охотиться возле опасных скал, поскольку выполняет роль ЕЁ.\n Назовите ЕЁ двумя словами, которые начинаются на парные согласные");
+                System.out.println("У морской кошачьей выдры есть толстый слой меха, который помогает ей охотиться возле опасных скал, поскольку выполняет роль ЕЁ.\nНазовите ЕЁ двумя словами, которые начинаются на парные согласные");
                 String answer=sc.nextLine().toLowerCase();
                 String trueAns="подушка безопасности";
                 if (trueAns.equals(answer)) {
                     System.out.println("Верно! Ты победил монстра");
-                    isAsk=false;
+                    isAsk=true;
                     return true;
                 } else {
                     System.out.println("Неправильно! Правильный ответ = " + trueAns);
+                    isAsk=true; // это нужно чтобы не переспрашивать пользователя, потому что уже знает ответ
                     return false;
                 }
             } else {
