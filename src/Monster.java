@@ -11,7 +11,6 @@ public class Monster {
     public void setMonster(String monster) {this.monster = monster;}
 
     public static boolean taskMonster() {
-//        if (key == 1) {
             Random r = new Random();
             Scanner sc = new Scanner(System.in);
             int monster1 = r.nextInt(300);
@@ -26,10 +25,6 @@ public class Monster {
                 System.out.println("Неправильно! Правильный ответ = " + trueAnswer);
                 return false;
             }
-
-//        } else {
-//            return false;
-//        }
     }
 
     public static boolean lastChance(byte step) {

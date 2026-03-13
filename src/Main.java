@@ -17,16 +17,15 @@ public class Main {
 
         Monster monster = new Monster();
         BigMonster bigMonster= new BigMonster();
+
         System.out.println("Привет! Ты готов начать играть в игру? (Напиши: ДА или НЕТ)");
         String answer = scanner.nextLine().toUpperCase();
-//        System.out.println("Ваш ответ:\t" + answer );
 
         switch (answer) {
             case "ДА":
-                System.out.println("Начинаем играть!"); /*Октонавты*/
+                System.out.println("Начинаем играть!");
                 System.out.println("Выбери сложность игры (от 1 до 5): ");
                 byte difficultGame = scanner.nextByte();
-//                System.out.println("Выбранная сложность:\t" + difficultGame);
 
                 String[][] board = new String[sizeBoard][sizeBoard];
                 for (int y = 1; y <= sizeBoard; y++) {
@@ -44,7 +43,6 @@ public class Main {
                 board[person.getY() - 1][person.getX() - 1] = person.getPerson();
 
                 while (true) {
-
                     if (person.getLive() == 0) {
                         if (Monster.lastChance(step)) {
                             person.plusLive();
@@ -67,11 +65,9 @@ public class Main {
                             step++;
                             System.out.println("Ход корректный; Новые координаты: " + person.getX() + ", " + person.getY() +
                                     "\nХод номер: " + step);
-
                         } else if (next.equals(castle)) {
                             System.out.println("Вы прошли игру!");
                             break;
-
                         } else {
                             System.out.print("Решите задачу: ");
                             if (board[y-1][x-1].equals(bigMonster.getMonster())) {
@@ -87,13 +83,11 @@ public class Main {
                                 if (Monster.taskMonster()) {
                                     board[person.getY()-1][person.getX()-1] = "  ";
                                     person.move(x,y);
-
                                 } else {
                                     person.minusLive();
                                 }
                                 step++;
                             }
-
                             board[person.getY()-1][person.getX()-1] = person.getPerson();
                         }
                     } else {
@@ -106,7 +100,6 @@ public class Main {
                 System.out.println("У меня вообще-то супер пупер мега игра где можно выиграть миллион(((");
                 System.out.println("Ну ладно если захочешь потом приходи!");
                 break;
-
 
             default:
                 System.out.println("ДА иль НЕТ дай мне ответ!");

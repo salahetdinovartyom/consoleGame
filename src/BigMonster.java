@@ -2,15 +2,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class BigMonster extends Monster{
-    //    BigMonster(int sizeBoard) {
+//        BigMonster(int sizeBoard) {
 //        super(sizeBoard);
 //    } я посчитал его ненужным))) он всё равно ошибку выдаёт, потому что у меня логика другая у кода
-    public String getMonster() {
-        return "🧌";}
+
+    public String getMonster() {return "🧌";}
+
     private static boolean isAsk;
+
     public int countMonster(int sizeBoard) {return sizeBoard-1;}
 
-//    @Override
+//    @Override это тоже выдаёт ошибку, но уже красную, наверное потому что у меня один просит сложность, а другой нет
     public static boolean taskMonster(int difficultGame){
         Scanner sc = new Scanner(System.in);
         if (difficultGame==1) {return taskMonster();}
@@ -47,7 +49,7 @@ public class BigMonster extends Monster{
                 return taskMonster(2);
             }
         }
-        }
+    }
 //    public boolean taskMonster() {
 //        return super.taskMonster();
 //    }

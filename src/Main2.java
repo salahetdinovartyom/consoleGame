@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-// У меня не получилось
+// У меня не получилось, можете не обращать внимания, это код чтобы было управление WASD
 public class Main2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
