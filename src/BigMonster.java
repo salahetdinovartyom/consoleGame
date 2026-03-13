@@ -43,7 +43,7 @@ public class BigMonster extends Monster{
                     return true;
                 } else {
                     System.out.println("Неправильно! Правильный ответ = " + trueAns);
-                    isAsk=true; // это нужно чтобы не переспрашивать пользователя, потому что уже знает ответ
+                    isAsk=true; // это нужно чтобы не переспрашивать пользователя, потому что он уже знает ответ
                     return false;
                 }
             } else {
